@@ -7,3 +7,8 @@ function nav_signup()
 {
 	document.getElementById("body").innerHTML = document.getElementById("signup_div").innerHTML;
 }
+
+function nav_report()
+{
+	document.getElementById("body").innerHTML = document.getElementById("report").innerHTML;
+}
