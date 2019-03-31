@@ -2,7 +2,7 @@
   // TODO: Replace with your project's config object
   // Get a reference to the database service
   
-
+var login_status = 0;
 
 function login(){
 
@@ -14,13 +14,11 @@ firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
 	document.getElementById("success").innerHTML = "Login Successful";
 	document.getElementById("Usr_name").innerHTML = "Hi "+userEmail.match(/^([^@]*)@/)[1];;
 	document.getElementById("Usr_name").style.display="block";
-	document.getElementById("nav_login").onclick = "logout()";
-	document.getElementById("login_form").style.display="none";
-	document.getElementById("logout_form").style.display="block";
-	document.getElementById("signup-box-link").innerHTML = "Logout";
-	document.getElementById("nav_login").innerHTML = "Logout";
-
+	document.getElementById("nav_login").style.display = "none";
+	document.getElementById("body").innerHTML = document.getElementById("report").innerHTML;
+	document.getElementById("logout_but").style.display="block";
 	console.log("successful",user.uid);
+	login_status =1;
 })
 .catch(function(error) {
 	// Handle Errors here.
@@ -37,13 +35,17 @@ firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
 function logout(){
 	firebase.auth().signOut().then(function(user){
 		console.log("logged out");
-		// document.getElementById("success").innerHTML = "........";
-		// document.getElementById("Usr_name").style.display="none";
-		// document.getElementById("login_form").style.display="block";
-		// document.getElementById("logout_form").style.display="none";
-		// document.getElementById("signup-box-link").innerHTML = "Logout";
-		// document.getElementById("nav_login").innerHTML = "Logout";
-		// document.getElementById("nav_login").onclick = "nav_login()";
+		event.preventDefault();
+		if(login_status==0){
+			alert("not logged in");
+			return 0;
+		}
+		login_status=0;
+		document.getElementById("success").innerHTML = "........";
+		document.getElementById("Usr_name").style.display="none";
+		document.getElementById("nav_login").style.display = "block";
+		document.getElementById("logout_but").style.display="none";
+		document.getElementById("body").innerHTML = document.getElementById("body").innerHTML;
 	});
 }
 
@@ -75,16 +77,10 @@ function signup()
 
 function report()
 {
-	firebase.auth().onAuthStateChanged(function(user) {
-	if (user) {
-	// User is signed in.
-		alert("dasf");
-		console.login("user logged in")	;
-	} else {
-	// No user is signed in.
-		console.login("not login");
+	if(login_status == 0){
+		alert("please login to report stolen vehicles");
+		return 0;
 	}
-	});
 	var plate_no = document.getElementById("plate_no").value;
 
 	console.log(plate_no.slice(2,4));

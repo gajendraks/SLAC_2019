@@ -50,11 +50,12 @@ body {font-size:16px;background-color: rgb(43, 6, 75)}
   </div>
   <div class="w3-bar-block">
 		<h3 id="Usr_name" class="w3-padding-64 w3-text-white hide">Hi User</h3>
-		<br>
+		<a type=button id="logout_but" class="btn btn-default btn-lg w3-button my-button" style="display:none" onclick="logout()">Logout</a>
+		<br><br><br>
     <a onclick="nav_login()" id="nav_login" class="w3-bar-item w3-button my-text-color my-hover-green-blue">Login</a> 
     <a onclick="nav_signup()" class="w3-bar-item w3-button my-hover-green-blue my-text-color">Signup</a> 
     <a onclick="nav_report()" class="w3-bar-item w3-button my-hover-green-blue my-text-color">Report</a> 
-    <a onclick="nav_about()" class="w3-bar-item w3-button my-hover-green-blue my-text-color">About</a> 
+		<a onclick="nav_about()" class="w3-bar-item w3-button my-hover-green-blue my-text-color">About</a> 
     <!-- <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a> -->
   </div>
 </nav>
@@ -71,7 +72,7 @@ body {font-size:16px;background-color: rgb(43, 6, 75)}
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px" id="body">
 	
-	<div class="w3-container" style="margin-top:80px" id="showcase">
+	<div class="w3-container" style="margin-top:80p	x" id="showcase">
     <h1 class="w3-jumbo"><b>11-54 Dispatcher</b></h1>
     <h1 class="w3-xxxlarge w3-text-red"><b>Under Development</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -135,7 +136,7 @@ body {font-size:16px;background-color: rgb(43, 6, 75)}
 			<div class="u-form-group">
 				<a type=submit class="btn btn-default btn-lg w3-button my-button" onclick="signup()">Submit</a>
 			</div>
-			<div class="form-group success" id="success" style="color:white">
+			<div class="form-group success" id="success">
 				<p>Operation Successful!</p>
 			</div>
 		</form>
