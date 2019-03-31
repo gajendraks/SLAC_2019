@@ -64,11 +64,10 @@ function signup()
 		.auth()
 		.createUserWithEmailAndPassword(userEmail, userPass)
 		.then(function(userResponse){
-			alert("dasjfhd");
-		console.log("Successfully created user account with uid:", userResponse.uid);
+			console.log("Successfully created user account with uid:", userResponse.uid);
 		})
 		.catch(function(error){
-		console.log("Error creating user:", error);
+			console.log("Error creating user:", error);
 		});
 	}
 	
